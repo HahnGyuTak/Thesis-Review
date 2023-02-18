@@ -15,7 +15,7 @@
   * RaFD : 행복, 분노, 슬픔 등과 같은 감정 도메인 추출
 * RaFD로 학습하여 CelebA 이미지에 표정을 바꾸기 위해 두 데이터셋을 함께 학습
 
-[stargan](IMG_E790BB5F1968-1.jpeg)
+![IMG_E790BB5F1968-1](https://user-images.githubusercontent.com/50629765/219863839-0c3d675b-a9dd-43a1-ae0c-8789f3025ac9.jpeg)
 
 * 기존의 모델은 여러 도메인 간의 변환이 비효과적이며 비효율적이었다.
   * k개의 도메인이 존재할 경우 k(k-1)개의 generator를 학습시켜야 했기 때문
@@ -43,7 +43,8 @@
   
 ### Adversarial Loss 
 
-[loss](IMG_57FC6DAEAC7A-1.jpeg)
+![IMG_57FC6DAEAC7A-1](https://user-images.githubusercontent.com/50629765/219863865-89884597-4d1c-4371-988f-08c97afbf0e9.jpeg)
+
 
 * G는 loss 를 최소화하려하고, D는 이를 최대화하려고 한다.
   
@@ -52,12 +53,13 @@
 * G(x,c)로 생성된 이미지가 c로 분류되도록 하기 위해, D 맨 위에 classifier 추가
 * real Img의 도메인 분류 손실을 사용하여 D를 최적화
 
-[D_optimizing_real](IMG_DD09A5BA8DC8-1.jpeg)
+![IMG_DD09A5BA8DC8-1](https://user-images.githubusercontent.com/50629765/219863884-b591a08f-989c-460a-b5c0-6a2e04da097b.jpeg)
+
 * real Img의 도메인 분류 손실을 사용하여 D를 최적화
 * D cls(c′|x)는 D가 계산한 도메인 레이블의 확률 분포
 * D 는 이 loss 를 최소화함으로서 (real Img인 x, 레이블 c')을 분류하는것을 학습
 
-[G_optimizing_fake](IMG_F4ECA0F27C1F-1.jpeg)
+![IMG_F4ECA0F27C1F-1](https://user-images.githubusercontent.com/50629765/219863889-f1be11ce-18cd-4b66-a968-66573beb0be1.jpeg)
 
 * G는 생성한 이미지가 target 도메인인 c로 분류되게끔 하기 위해 이 loss를 최소화한다.
 
@@ -65,7 +67,7 @@
 
 * 위 loss를 최소화 한다 해도, 입력된 이미지에서 변환된 도메인을 제외하고 보존하는 것에 어려움이 있음
 
-[Reconstruction Loss](IMG_72F4C97DFD50-1.jpeg)
+![IMG_72F4C97DFD50-1](https://user-images.githubusercontent.com/50629765/219863895-5c768829-1131-4f4d-9a04-8c595500e1f9.jpeg)
 
 * cycle consistency(순환 일관성) loss 적용
 * G에 변환된 이미지 G(x, c)와 원본 도메인 c'을 입력 → 원본이미지 재구성
@@ -75,7 +77,7 @@
 
 * optimize Fuctions of G and D
   
-[Optimize Fuction](IMG_4F814845022B-1.jpeg)
+![IMG_4F814845022B-1](https://user-images.githubusercontent.com/50629765/219863898-35a4e46b-de00-4192-b902-60bce54c374a.jpeg)
 
 * λcls 와 λrec 는 분류, 재구성 손실에 영향을 주는 하이퍼 파라미터
 * λcls 는 1, λrec 는 10 사용
