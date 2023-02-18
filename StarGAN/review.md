@@ -91,7 +91,8 @@
 
 * make vector를 도입, 불특정한 레이블을 무시하고 명시된 레이블에 집중
 
-[]()
+![mask_vecotr](https://user-images.githubusercontent.com/50629765/219866136-663ceab6-d40f-4080-a6fe-cc7df648216e.jpeg)
+
 
 * c는 i번째 dataset의 레이블 벡터를 의미
 
