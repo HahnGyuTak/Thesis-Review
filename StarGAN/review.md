@@ -90,4 +90,14 @@
 ### Mask Vector
 
 * make vector를 도입, 불특정한 레이블을 무시하고 명시된 레이블에 집중
+
+[]()
+
+* c는 i번째 dataset의 레이블 벡터를 의미
+
+### Training Strategy
+
+* 다중 dataset을 학습할 때, domain 레이블은 mask vector로 정의하여 G에 입력
+* G의 구조는 하나의 dataset으로 학습하는 것과 다를바 없음
+* 모든 dataset의 확률분포를 만들기 위해 D의 보조 분류기를 확장
 * 
