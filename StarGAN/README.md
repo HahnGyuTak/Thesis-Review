@@ -108,7 +108,7 @@
 
 ### Imporve GAN Training
 
-[]()
+![image](https://user-images.githubusercontent.com/50629765/224294892-b999b941-b5e9-4999-9484-a957a639e620.png)
 
 * 위 수식으로 정의된 gradient penalty를 사용하는 Wasserstein GAN 사용
 
@@ -161,8 +161,8 @@
     * 합성곱 layer에서 활성화된 맵을 latent representation 로 저장하기 때문
     * latent repesentation : 이미지에서 발견된 특징들을 나타내는 숫자 배열
 
-[이미지]()
-[설문]()
+![IMG_78CC5B591D7C-1](https://user-images.githubusercontent.com/50629765/224294980-cb4ed0b4-e434-4439-a4da-daeacbf76501.jpeg)
+![IMG_ADAA2C15EAE7-1](https://user-images.githubusercontent.com/50629765/224295011-bb1cfb6f-a118-4d86-8450-319729932c8e.jpeg)
 
 ### 5.5. Experimental Results on RaFD
 
@@ -176,16 +176,20 @@
     * 타 모델은 2 domain학습시 1000개의 데이터 학습
     * StarGAN은 모든 domain의 데이터 약 4000개 사용
 
-[이미지]()
+![IMG_828603DA420E-1](https://user-images.githubusercontent.com/50629765/224295058-2a43d1ef-60eb-4af9-a95a-e8f3dbadc859.jpeg)
+
 
 * RaFD로 분류기 학습 후, 생성된 이미지 분류 결과
 
-[설문]()
+![RaFD cls](https://user-images.githubusercontent.com/50629765/224295099-5e4b4a1d-7fa9-47b2-8089-9f2934bfc68f.jpeg)
+
 
 * StarGAN이 classification error 가 가장 작음
 * 학습에 필요한 parameter가 타 모델에 비해 현저히 작음
    * -> StarGAN은 단 한쌍의 (G, D)를 사용하기 때문
 ### 5.6. Experimental Results on CelebA + RaFD
+
+![IMG_0D6FA5D07ACF-1](https://user-images.githubusercontent.com/50629765/224295184-4d2ad2c0-bd7f-4449-8965-c2edcc81b9f4.jpeg)
 
 * CelebA 와 RaFD 데이터셋 둘 다 사용 (Multiple datasets) (with mask vector)
 * JNT(jointly train), SNG(single train)
