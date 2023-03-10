@@ -93,7 +93,6 @@
 
 ![mask_vecotr](https://user-images.githubusercontent.com/50629765/219866136-663ceab6-d40f-4080-a6fe-cc7df648216e.jpeg)
 
-
 * c는 i번째 dataset의 레이블 벡터를 의미
 
 ### Training Strategy
@@ -101,4 +100,95 @@
 * 다중 dataset을 학습할 때, domain 레이블은 mask vector로 정의하여 G에 입력
 * G의 구조는 하나의 dataset으로 학습하는 것과 다를바 없음
 * 모든 dataset의 확률분포를 만들기 위해 D의 보조 분류기를 확장
-* 
+* D가 특정 레이블에 대한 classification error를 최소하하는 과정을 통해 학습
+  * CelebA 이미지로 학습을 진행할 때, D는 CelebA에 존재하는 label의 classification loss를 최소화
+* RaFD와 CelebA를 교대로 학습 진행 -> 모든 레이블 학습
+
+> ## 4. Implementation
+
+### Imporve GAN Training
+
+[]()
+
+* 위 수식으로 정의된 gradient penalty를 사용하는 Wasserstein GAN 사용
+
+### Network Acchitecture
+
+* CycleGAN에서 채택된 StarGAN의 Generator 네트워크 구성
+  * convolutional layer (stride size : 2) -> downsampling
+  * Residual Block of 6
+  * transposed convolutional layer (stride size : 2) -> upsampling
+* G에만 표준화 적용
+
+> ## 5. Experiment
+
+### 5.1. Baseline Models
+
+* DIAT - image-to-image transform (2 domain)
+  * 두 domain Img인 X, Y의 매핑을 학습
+  * |x - F(G(x))| 로 매핑한 정규화를 통해 원본 Img의 특징 보존
+* CycleGAN - image-to-image transform (2 domain)
+  * G(x)를 다시 G에 입력하여, 원본 이미지와의 손실 측정
+* IcGAN - cGAN에 기인
+  * 매핑 G : {z, c} → x 에서 역매핑 Ez : x → z 및 Ec : x → c 역시 학습
+  * 잠재 벡터를 보존하면서 조건 벡터만 변경하여 이미지를 합성
+
+### 5.2. Datasets
+
+* CelebA
+  * 유명인사의 얼굴 데이터의 7가지 domain
+  * 머리색 (black, blond, brown), 성별, 나이
+* RaFD
+  * 참여자들의 8가지 표정 데이터 수집
+
+### 5.3. Training
+
+* Optimizer : Adam
+* batch size : 16
+* CelebA
+  * learning rate : (epoch) (0 ~ 10) 0.0001, (11 ~ ) 0까지 점차 감소
+* RaFD
+  * learning rate : (epoch) (0 ~ 100) 0.0001, (11 ~ ) 0까지 점차 감소
+* GPU : NVIDIA Tesla M40
+
+### 5.4. Experimental Results on CelebA
+
+* DIAT, CycleGAN과 같은 교차 도메인 모델을 label의 모든 쌍을 학습시킴
+* 평가
+  * 고정된 변환을 학습 하는 대신, StarGAN은 target 도메인에 대한 label에 따라 유연하게 변환할 수 있도록 학습
+  * 다른 r교차 도메인들 보다 성능 Good
+  * IcGAN보다 얼굴의 정체성을 유지
+    * 합성곱 layer에서 활성화된 맵을 latent representation 로 저장하기 때문
+    * latent repesentation : 이미지에서 발견된 특징들을 나타내는 숫자 배열
+
+[이미지]()
+[설문]()
+
+### 5.5. Experimental Results on RaFD
+
+* 무표정을 입력으로 RaFD의 여러 표정들을 학습
+* 각 도메인 당 약 500장의 데이터
+* 평가
+  * StarGAN 모델이 가장 자연스러운 표정 생성
+  * DIAT와 CycleGAN은 입력 이미지의 정체성은 유지, 하지만 선명도가 저하
+  * IcGAN은 정체성 유지조차 실패
+  * Why?
+    * 타 모델은 2 domain학습시 1000개의 데이터 학습
+    * StarGAN은 모든 domain의 데이터 약 4000개 사용
+
+[이미지]()
+
+* RaFD로 분류기 학습 후, 생성된 이미지 분류 결과
+
+[설문]()
+
+* StarGAN이 classification error 가 가장 작음
+* 학습에 필요한 parameter가 타 모델에 비해 현저히 작음
+   * -> StarGAN은 단 한쌍의 (G, D)를 사용하기 때문
+### 5.6. Experimental Results on CelebA + RaFD
+
+* CelebA 와 RaFD 데이터셋 둘 다 사용 (Multiple datasets) (with mask vector)
+* JNT(jointly train), SNG(single train)
+* joint training의 효과
+  * JNT가 더 선명한 품질의 표정을 생성
+  * SNG는 CelebA의 image translation을 학습 X 이기 때문
