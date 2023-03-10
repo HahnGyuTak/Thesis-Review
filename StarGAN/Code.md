@@ -84,4 +84,4 @@
 
   * *train_multi*
     * multi데이터로 StarGAN 학습
-      1. 
+  * 
