@@ -1,4 +1,5 @@
 # StarGAN 논문 리뷰
+[About Code](https://github.com/HanGyuTak/Thesis-Review/blob/main/StarGAN/Code.md)
 
 > ## 초록
 
