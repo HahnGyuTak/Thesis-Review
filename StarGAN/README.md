@@ -1,6 +1,7 @@
 # StarGAN 논문 리뷰
-[About Code](https://github.com/HanGyuTak/Thesis-Review/blob/main/StarGAN/Code.md)
-[English Ver](/StarGAN/Review_EN)
+[About Code](Code.md)
+
+[English Ver](Review_EN.md)
 > ## 초록
 
 * 최근 연구들은 2개의 도메인에서 이미지 변환에 효과적인 성능을 보였지만, 3개 이상의 도메인을 다루는 접근에서는 한계를 보였다.
