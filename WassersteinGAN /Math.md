@@ -52,3 +52,24 @@
 
 
 * 확률 측도 = 확률 분포 
+
+## Different Distance (Metrics)
+
+### Total Variation (TV)
+
+* 두 확률측도의 측정값이 벌어질 수 있는 값들 중 가장 큰 값
+![tv1]()
+* 만약 교집합이 ∅ 이면, TV = 1
+
+### Kullback-Leibler divergence
+
+![kl]()
+* metric의 특징(대칭성, 삼각부등식)이 성립 X
+  * 그래도 사용가능
+* stronger than TV
+* 𝛳 ≠ 0 → ㏒ = ∞ → KL = ∞
+
+### Jensen-Shanonon divergence
+
+
+
