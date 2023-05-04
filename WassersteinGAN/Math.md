@@ -71,7 +71,7 @@
 * metric의 특징(대칭성, 삼각부등식)이 성립 X
   * 그래도 사용가능
 * stronger than TV
-* 𝛳 ≠ 0 → ㏒ = ∞ → KL = ∞
+* 𝛳 ≠ 0 → ㏒ = ∞ → KL = ∞ (발산)
 
 ### Jensen-Shanonon divergence
 
@@ -80,15 +80,14 @@
 
 * Equivalent with TV
 * 𝛳 ≠ 0 → JS = ㏒2
+* ㏒2 로 고정되어서 얼마나 먼지 모름
 
 > TV, KL, JS는 두 확률분포가 다른 영역에서 측정된 경우 완전히 다르다 라고 판단
 >   ⇨ GAN에서 Discrimitor의 학습이 죽는 원인
 
 > 즉, 유연하면서 수렴에 Focus가 집중된 metric이 필요
 
-## WassersteinGAN
-
-### Wasserstein distance
+### EM distance or Wasserstein distance
 
 <img width="357" alt="wgan" src="https://user-images.githubusercontent.com/50629765/236161744-7ef175e7-113d-4a8b-b68a-36570710f799.png">
 
@@ -102,3 +101,7 @@
 * 𝔼(𝒅(𝑥, 𝑦)) ≥ |𝛳|
 * 𝑍₁ = 𝑍₂ → 𝒅(𝑥, 𝑦) = |𝛳|
 * 즉, 𝑊 = |𝛳|
+  
+> EM distance와 JS divergence 비교
+
+> ![df]()
