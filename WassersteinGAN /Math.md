@@ -1,4 +1,4 @@
-# wGAN Math
+# WassersteinGAN Math
 
 ## Metric (Distance)
 
@@ -20,12 +20,14 @@
 
   * fn과 f의 차를 제곱하여 적분한 값(L2거리)이 0으로 수렴 → L2수렴
 
-    * ![L2수렴]()
+    * ![L2수렴](https://user-images.githubusercontent.com/50629765/236161330-7d556c18-6b80-47ab-a9d0-0327c45b15bf.jpeg)
+
 
   * fn이 모든 𝑥에 대해 𝟄범위 안에 들어오면서 수렴 (L∞거리) → L∞수렴 or 균등 수렴 (uniformly converge)
     *  𝟄범위 벗어나면 측도 수렴 (converge in measure)
 
-    * ![L inf 수렴]()
+    * ![Linf수렴](https://user-images.githubusercontent.com/50629765/236161373-ade9e16f-4ca2-4714-ace3-4ebdc2d94bfe.jpeg)
+
 
 > ⇨ **거리함수가 바뀌면 수렴의 방식이 바뀜**
 
@@ -58,12 +60,14 @@
 ### Total Variation (TV)
 
 * 두 확률측도의 측정값이 벌어질 수 있는 값들 중 가장 큰 값
-![tv1]()
+!<img width="505" alt="tv" src="https://user-images.githubusercontent.com/50629765/236161449-093d069a-1d6d-46b2-83d3-a1f1cdef367c.png">
+
 * 만약 교집합이 ∅ 이면, TV = 1
 
 ### Kullback-Leibler divergence
 
-![kl]()
+<img width="397" alt="KL divergence" src="https://user-images.githubusercontent.com/50629765/236162148-8d756c46-2021-44fb-a99b-7ebfc7ec0881.png">
+
 * metric의 특징(대칭성, 삼각부등식)이 성립 X
   * 그래도 사용가능
 * stronger than TV
@@ -71,7 +75,8 @@
 
 ### Jensen-Shanonon divergence
 
-![js]()
+<img width="517" alt="js divergence" src="https://user-images.githubusercontent.com/50629765/236162178-783f8803-a1ec-45be-bde8-133ef7530d93.png">
+
 
 * Equivalent with TV
 * 𝛳 ≠ 0 → JS = ㏒2
@@ -85,12 +90,14 @@
 
 ### Wasserstein distance
 
-![wGAN]()
+<img width="357" alt="wgan" src="https://user-images.githubusercontent.com/50629765/236161744-7ef175e7-113d-4a8b-b68a-36570710f799.png">
+
 
 * 𝛱(P, Q) : P, Q의 결합확률분포
 * 모든 결합 확률분포 중 𝒅(𝑥, 𝑦)의 기댓값 중 하한값
 
-![wD]()
+<img width="463" alt="wd" src="https://user-images.githubusercontent.com/50629765/236162109-dacfb84f-80bc-4301-8ff8-1665e7892103.png">
+
 
 * 𝔼(𝒅(𝑥, 𝑦)) ≥ |𝛳|
 * 𝑍₁ = 𝑍₂ → 𝒅(𝑥, 𝑦) = |𝛳|
