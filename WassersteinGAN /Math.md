@@ -71,5 +71,27 @@
 
 ### Jensen-Shanonon divergence
 
+![js]()
 
+* Equivalent with TV
+* 𝛳 ≠ 0 → JS = ㏒2
 
+> TV, KL, JS는 두 확률분포가 다른 영역에서 측정된 경우 완전히 다르다 라고 판단
+>   ⇨ GAN에서 Discrimitor의 학습이 죽는 원인
+
+> 즉, 유연하면서 수렴에 Focus가 집중된 metric이 필요
+
+## WassersteinGAN
+
+### Wasserstein distance
+
+![wGAN]()
+
+* 𝛱(P, Q) : P, Q의 결합확률분포
+* 모든 결합 확률분포 중 𝒅(𝑥, 𝑦)의 기댓값 중 하한값
+
+![wD]()
+
+* 𝔼(𝒅(𝑥, 𝑦)) ≥ |𝛳|
+* 𝑍₁ = 𝑍₂ → 𝒅(𝑥, 𝑦) = |𝛳|
+* 즉, 𝑊 = |𝛳|
