@@ -196,3 +196,5 @@
 * Effect of joint training
   * JNT creates a clearer quality expression
   * SNG learns image translation of CelebA as X
+ 
+  
