@@ -7,17 +7,16 @@
 
 - 선행 연구
     - RNN
-        
-        ![스크린샷 2023-08-05 오후 6.33.46.png](Transformer/1.png)
+        ![1](https://github.com/HahnGyuTak/Thesis-Review/assets/50629765/5deeef36-5fbf-4204-9fc0-7f8dc2ba59cb)
         
         - 각 박스 - 단어
         - 초록색 박스 - Neural Network, 단어를 벡터로 변환(워드 임베딩) 후 입력
         - 현재 word vector를 이전의 값을 바탕으로 업데이트
         - 워드 임베딩 - Word Embedding
             
-            ![스크린샷 2023-08-05 오후 6.36.32.png](Transformer/2.png)
-            
-            ![스크린샷 2023-08-05 오후 6.39.41.png](Transformer/3.png)
+        ![2](https://github.com/HahnGyuTak/Thesis-Review/assets/50629765/06310936-397c-4f70-a359-251d7643caf0)
+        ![3](https://github.com/HahnGyuTak/Thesis-Review/assets/50629765/85765403-27fb-4cdb-9018-6e77544b17cd)
+
             
         - 맥락의 두 벡터에 weight를 곱하여 hidden layer로 만들고 다시 weight를 곱한 뒤 softmax를 취함
         - ouput과 실제 원 핫 벡터의 loss를 구하고 이를 다음 layer로 전달
@@ -25,7 +24,8 @@
     - LSTM
         - 과거의 값들 중 최근 기억을 사용하여 과거 기억을 수정
             
-            ![스크린샷 2023-08-05 오후 6.43.28.png](Transformer/4.png)
+            ![4](https://github.com/HahnGyuTak/Thesis-Review/assets/50629765/61e6b35e-4f15-427f-b8a1-52ca2c7de23b)
+
             
         - 위 → 는 과거의 기억(Long term Memory). 아래 →는 최근 기억(Short Term Memory)
         - 첫번째 Fully Connected Layer에 단기기억과 현재 word가 입력
@@ -54,7 +54,8 @@
 - 문맥에 따라 집중할 단어를 결정하는 방식
 - Encoder, Decoder 구조
     
-    ![스크린샷 2023-08-09 오후 9.04.17.png](Transformer/Attention.png)
+    <img width="849" alt="Attention" src="https://github.com/HahnGyuTak/Thesis-Review/assets/50629765/1b7c73d9-5317-4c77-89f6-0baedceed046">
+
     
     - Encoder : 모든 RNN 셀의 hidden state를 사용
     - Decoder : 현재 셀의 hidden state만 사용
@@ -92,14 +93,16 @@
     
 - Encoder 6개, Decoder 6개로 이루어진 구조
     
-    ![스크린샷 2023-08-14 오전 2.46.09.png](Transformer/Transformer.png)
+    ![transformer](https://github.com/HahnGyuTak/Thesis-Review/assets/50629765/dd962298-3a65-4818-a10a-5be83eb9e470)
+
     
     - Encoder 블록 각각은  Self-Attention, Neural Network으로 구성되어있다.
     - Decoder 블록 각각은 Neural Network, Masked Self-Attention, Encoder-Decoder Selft-Attention으로 구성되어있다.
 
 ## Multi Head Attention 과정
 
-![스크린샷 2023-08-11 오후 9.35.20.png](Transformer/MHA.png)
+<img width="727" alt="MHA" src="https://github.com/HahnGyuTak/Thesis-Review/assets/50629765/46f267c5-e22d-497b-8a8e-d73f9ed20b0b">
+
 
 1. 각 단어는 vector로 변환하고 Positional Ecoding을 통해 위치정보를 더하여 input vector를 만든다.
 2. 각 벡터는 self attention을 통해 동일 dimention의 output을 내보낸다.
@@ -121,7 +124,8 @@
 
 ## Encoder
 
-![스크린샷 2023-08-11 오후 9.41.37.png](Transformer/Encoder.png)
+<img width="412" alt="Encoder" src="https://github.com/HahnGyuTak/Thesis-Review/assets/50629765/33e7af32-aa79-40ad-84d2-5020bcf9bc65">
+
 
 - Skip Connection와 Layer Nomalization을 거친 output을 Feed forward Neural Network로 입력
 - Feed forward Neural Network
@@ -159,7 +163,8 @@
 
 - Encoder
     
-    ![스크린샷 2023-08-11 오후 10.10.26.png](Transformer/Encoder2.png)
+    <img width="600" alt="Encoder2" src="https://github.com/HahnGyuTak/Thesis-Review/assets/50629765/89af1b59-7120-4a99-ab6c-eeffc345d551">
+
     
     - Source 문장의 단어들을 Positional encoding을 통해 위치정보를 더한 후 Multi Head Attention에 입력한다.
     - Multi-head Attention
@@ -169,7 +174,8 @@
     - 위 과정을 6번 반복
 - Decoder
     
-    ![스크린샷 2023-08-11 오후 10.11.55.png](Transformer/Decoder2.png)
+    <img width="588" alt="Decoder2" src="https://github.com/HahnGyuTak/Thesis-Review/assets/50629765/62a38943-7d87-4235-897c-b2651b1d2c80">
+
     
     - Target 문장에서 다음 단어로 어떤 단어가 올지 학습한다. (문장이 완성될때까지 예측을 반복, step)
     - Masked Multi-Head Attention
