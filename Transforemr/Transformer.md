@@ -1,9 +1,5 @@
 # Transformer
 
-작성일시: 2023년 8월 5일 오후 6:32
-유형: 강의
-자료: https://youtu.be/URci3Eqz3hc
-복습: No
 
 - 선행 연구
     - RNN
